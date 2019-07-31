@@ -191,5 +191,11 @@ Result : 01-08-2019
 /* Swap the values of two columns*/
 
 UPDATE Table_Name SET Column1=Column2, Column2=Column1  
+-----------------------------------------------------------------------------------------
 
+/* incrimental number in select Query */
+                                         
+SELECT ROW_NUMBER() OVER( ORDER BY SomeColumn ) AS 'rownumber',*
+    FROM YourTable             
+                                         
 
