@@ -197,5 +197,7 @@ UPDATE Table_Name SET Column1=Column2, Column2=Column1
                                          
 SELECT ROW_NUMBER() OVER( ORDER BY SomeColumn ) AS 'rownumber',*
     FROM YourTable             
-                                         
-
+-----------------------------------------------------------------------------------------
+/* If temp table exist drop it */
+IF OBJECT_ID('tempdb..#Results') IS NOT NULL                                         
+   DROP TABLE #Results
