@@ -201,3 +201,10 @@ SELECT ROW_NUMBER() OVER( ORDER BY SomeColumn ) AS 'rownumber',*
 /* If temp table exist drop it */
 IF OBJECT_ID('tempdb..#Results') IS NOT NULL                                         
    DROP TABLE #Results
+-----------------------------------------------------------------------------------------
+/* If need to check any numeric value is there */                                         
+select * from <Table Name>
+where isnumeric (column)<>0 ----is numeric
+--==============================
+select * from <Table Name>
+where isnumeric (column)<>1 ----not numeric
