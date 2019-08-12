@@ -208,3 +208,40 @@ where isnumeric (column)<>0 ----is numeric
 --==============================
 select * from <Table Name>
 where isnumeric (column)<>1 ----not numeric
+-----------------------------------------------------------------------------------------
+/* When we need to find  minmum or maximum value from history table */
+-- suppose one table2(history table) have table1(main) history table
+CREATE TABLE table1(
+pid varchar(50),
+name varcha(50),
+.
+.
+.
+
+)
+INSERT INTO table1(1,"jayesh")
+INSERT INTO table1(2,"ganesh")
+INSERT INTO table1(3,"ramesh")
+INSERT INTO table1(4,"jignesh")
+
+
+CREATE TABLE table2(
+pid varchar(50),
+table1_pid varchar(50),
+created_date datetime,
+history_data varchar(50)
+)
+
+INSERT INTO table2(1,4,"1 July 2019","naresh")
+INSERT INTO table2(2,2,"1 July 2019","mukesh")
+INSERT INTO table2(3,4,"2 July 2019","shayma")
+INSERT INTO table2(4,4,"5 July 2019","yes")
+INSERT INTO table2(5,4,"10 July 2019","jignesh") -- last update history
+
+--now we have to get first value from history table
+--when making join table
+select * from table2 t1  where created_date=(select min(date) from table2 t2 where t2.table1_pid=t1.pid) 
+                                         
+                                         
+                                         
+                                         
